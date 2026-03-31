@@ -6,7 +6,10 @@ import {
   Cpu, 
   Globe, 
   ExternalLink,
-  ChevronRight
+  ChevronRight,
+  User,
+  Phone,
+  MessageSquare
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -247,30 +250,120 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-24 lg:py-48">
-        <div className="container mx-auto px-6 text-center">
-          <div className="max-w-3xl mx-auto glass p-12 lg:p-20 rounded-[3rem] border-white/5 relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-8 text-brand-primary/10">
-              <Mail className="w-32 h-32" />
+      <section id="contact" className="py-24 lg:py-48 px-6">
+        <div className="w-full">
+          <div className="max-w-7xl mx-auto glass p-8 lg:p-20 rounded-[4rem] border-white/5 relative overflow-hidden">
+            <div className="absolute -top-10 -right-10 p-8 text-brand-primary/5 -z-0">
+              <Mail className="w-64 h-64 rotate-12" />
             </div>
             
-            <h2 className="text-4xl lg:text-6xl font-black text-white mb-8">Let&apos;s build something <span className="text-brand-primary">epic</span> together.</h2>
-            <p className="text-white/50 mb-12 text-lg">
-              Open for collaborations, interesting freelance projects or simply to say hi. 
-              My inbox is always open.
-            </p>
-            
-            <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-              <Link 
-                href="mailto:hello@example.com" 
-                className="w-full md:w-auto px-10 py-5 rounded-2xl bg-white text-black font-bold hover:scale-105 active:scale-95 transition-all shadow-2xl"
-              >
-                Hire Me Now
-              </Link>
-              <div className="flex gap-4">
-                <SocialIcon icon={<Github className="w-5 h-5" />} href="#" />
-                <SocialIcon icon={<Linkedin className="w-5 h-5" />} href="#" />
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start relative z-10">
+              {/* Left Side: Content */}
+              <div className="space-y-8 text-left">
+                <div>
+                  <h2 className="text-5xl lg:text-7xl font-black text-white mb-8 leading-[1.1]">
+                    Let&apos;s build something <span className="text-brand-primary text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">epic</span> together.
+                  </h2>
+                  <p className="text-white/50 text-lg lg:text-xl leading-relaxed max-w-md">
+                    Open for collaborations, interesting freelance projects or simply to say hi. 
+                    Fill out the form and I&apos;ll get back to you within 24 hours.
+                  </p>
+                </div>
+
+                <div className="space-y-6 pt-8 border-t border-white/5">
+                  <div className="flex items-center gap-4 text-white/70 group">
+                    <div className="w-12 h-12 rounded-xl glass flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-all">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em]">Email Me</p>
+                      <p className="text-lg font-medium">hello@ragul.dev</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-4">
+                    <SocialIcon icon={<Github className="w-5 h-5" />} href="#" />
+                    <SocialIcon icon={<Linkedin className="w-5 h-5" />} href="#" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Side: Form */}
+              <div className="glass p-8 lg:p-10 rounded-[2rem] border-white/5 bg-white/[0.01]">
+                <form className="space-y-6 text-left">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Person Name</label>
+                    <div className="relative group">
+                      <div className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl glass flex items-center justify-center text-brand-primary/50 group-focus-within:text-brand-primary group-focus-within:scale-110 transition-all duration-300">
+                        <User className="w-5 h-5" />
+                      </div>
+                      <input 
+                        id="name"
+                        type="text" 
+                        placeholder="Your full name" 
+                        className="w-full pl-16 pr-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:border-brand-primary/50 focus:outline-none focus:ring-1 focus:ring-brand-primary/50 transition-all font-medium"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Gmail Address</label>
+                    <div className="relative group">
+                      <div className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl glass flex items-center justify-center text-brand-primary/50 group-focus-within:text-brand-primary group-focus-within:scale-110 transition-all duration-300">
+                        <Mail className="w-5 h-5" />
+                      </div>
+                      <input 
+                        id="email"
+                        type="email" 
+                        placeholder="yourname@gmail.com" 
+                        className="w-full pl-16 pr-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:border-brand-primary/50 focus:outline-none focus:ring-1 focus:ring-brand-primary/50 transition-all font-medium"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Phone Number</label>
+                    <div className="relative group">
+                      <div className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl glass flex items-center justify-center text-brand-primary/50 group-focus-within:text-brand-primary group-focus-within:scale-110 transition-all duration-300">
+                        <Phone className="w-5 h-5" />
+                      </div>
+                      <input 
+                        id="phone"
+                        type="tel" 
+                        placeholder="+91 00000 00000" 
+                        className="w-full pl-16 pr-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:border-brand-primary/50 focus:outline-none focus:ring-1 focus:ring-brand-primary/50 transition-all font-medium"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="reason" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] ml-1">Reason for reaching</label>
+                    <div className="relative group">
+                      <div className="absolute left-4 top-6 w-10 h-10 rounded-xl glass flex items-center justify-center text-brand-primary/50 group-focus-within:text-brand-primary group-focus-within:scale-110 transition-all duration-300">
+                        <MessageSquare className="w-5 h-5" />
+                      </div>
+                      <textarea 
+                        id="reason"
+                        rows={3}
+                        placeholder="What can we build together?" 
+                        className="w-full pl-16 pr-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:border-brand-primary/50 focus:outline-none focus:ring-1 focus:ring-brand-primary/50 transition-all font-medium resize-none"
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div className="pt-4">
+                    <button 
+                      type="submit" 
+                      className="w-full py-5 rounded-2xl bg-brand-primary hover:bg-blue-600 text-white font-bold transition-all shadow-xl shadow-blue-500/20 active:scale-[0.98] group flex items-center justify-center gap-3 text-lg"
+                    >
+                      Submit Inquiry
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
